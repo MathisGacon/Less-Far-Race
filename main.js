@@ -12,12 +12,11 @@ let y = 0;
 var player1 = setInterval(() => {
   x += 1;
   y += 0.465;
-  if (x < 1500) {
-    ctx.strokeStyle = "yellow";
-    ctx.beginPath();
-    ctx.arc(x, y, 22.5, -Math.PI / 2, Math.PI, true);
-    ctx.stroke();
-  }
+
+  ctx.strokeStyle = "yellow";
+  ctx.beginPath();
+  ctx.arc(x, y, 22.5, -Math.PI / 2, Math.PI, true);
+  ctx.stroke();
 }, 10);
 console.log(player1);
 
@@ -26,12 +25,10 @@ let u = 700;
 var player2 = setInterval(() => {
   t += 1;
   u -= 0.465;
-  if (t < 1500) {
-    ctx.strokeStyle = "red";
-    ctx.beginPath();
-    ctx.arc(t, u, 22.5, Math.PI / 2, Math.PI, false);
-    ctx.stroke();
-  }
+  ctx.strokeStyle = "red";
+  ctx.beginPath();
+  ctx.arc(t, u, 22.5, Math.PI / 2, Math.PI, false);
+  ctx.stroke();
 }, 10);
 
 let r = 1500;
@@ -39,12 +36,11 @@ let p = 0;
 var player3 = setInterval(() => {
   r -= 1;
   p += 0.465;
-  if (p > 0) {
-    ctx.strokeStyle = "blue";
-    ctx.beginPath();
-    ctx.arc(r, p, 22.5, Math.PI * 1.5, 2 * Math.PI, false);
-    ctx.stroke();
-  }
+
+  ctx.strokeStyle = "blue";
+  ctx.beginPath();
+  ctx.arc(r, p, 22.5, Math.PI * 1.5, 2 * Math.PI, false);
+  ctx.stroke();
 }, 10);
 
 let m = 1500;
@@ -52,12 +48,11 @@ let n = 700;
 var player4 = setInterval(() => {
   m -= 1;
   n -= 0.465;
-  if (m > 0) {
-    ctx.strokeStyle = "green";
-    ctx.beginPath();
-    ctx.arc(m, n, 22.5, Math.PI / 2, Math.PI * 2, true);
-    ctx.stroke();
-  }
+
+  ctx.strokeStyle = "green";
+  ctx.beginPath();
+  ctx.arc(m, n, 22.5, Math.PI / 2, Math.PI * 2, true);
+  ctx.stroke();
 }, 10);
 
 ctx.strokeStyle = "#001f3f";
