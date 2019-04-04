@@ -59,7 +59,6 @@ class Player {
       dy: rectContains.dy
     };
   }
-
   drawArrow() {
     var arrow = setInterval(() => {
       this.score++;
@@ -88,30 +87,79 @@ class Player {
       }
     }, 10);
     document.addEventListener("keydown", event => {
-      zero++;
       const nomTouche = event.key;
       if (nomTouche === this.touche) {
+        zero++;
         clearInterval(arrow);
         localStorage.setItem(this.username, this.score);
         // if (this.score > 754)
         // if (localStorage.getItem(this.username) === this.username) {
         //   console.log("yo");
-        grade.push({ username: this.username, score: this.score });
-      }
-      const res = grade.reduce((acc, currentVal) => {
-        let tmp = acc.grade ? acc : currentVal;
-        if (currentVal.grade > acc.grade) {
-          tmp = currentVal;
-          return tmp;
-        }
-        // tmp.username = acc.user
-        return tmp;
-      }, {});
 
-      console.log("result des courses", res);
+        grade.push({ username: this.username, score: this.score });
+        grade.filter(function(obj) {
+          if (!(obj.username == obj.unsername)) return obj.username;
+        });
+        // console.log(grade);
+
+        console.log(grade);
+        console.log(zero);
+        if (zero === 1 && numberOfPlayer === 1) {
+          const res = grade.reduce((acc, current, i) => {
+            const tmp = current.score < acc.score ? acc : current;
+            return tmp;
+          }, grade[0]);
+          alert(
+            `Good job ${res.username} you're the winner with ${
+              res.score
+            } points!!`
+          );
+        } else if (zero === 2 && numberOfPlayer === 2) {
+          const res = grade.reduce((acc, current, i) => {
+            const tmp = current.score < acc.score ? acc : current;
+            return tmp;
+          }, grade[0]);
+          alert(
+            `Good job ${res.username} you're the winner with ${
+              res.score
+            } points!!`
+          );
+        } else if (zero === 3 && numberOfPlayer === 3) {
+          const res = grade.reduce((acc, current, i) => {
+            const tmp = current.score < acc.score ? acc : current;
+            return tmp;
+          }, grade[0]);
+          alert(
+            `Good job ${res.username} you're the winner with ${
+              res.score
+            } points!!`
+          );
+        } else if (zero === 4 && numberOfPlayer === 4) {
+          const res = grade.reduce((acc, current, i) => {
+            const tmp = current.score < acc.score ? acc : current;
+            return tmp;
+          }, grade[0]);
+          alert(
+            `Good job ${res.username} you're the winner with ${
+              res.score
+            } points!!`
+          );
+        }
+      }
+      // if (grade.score[0] > grade.score)
+      // const res = grade.reduce((acc, currentVal) => {
+      //   let tmp = acc.grade ? acc : currentVal;
+      //   if (currentVal.grade > acc.grade) {
+      //     tmp = currentVal;
+      //     return tmp;
+      //   }
+      //   // tmp.username = acc.user
+      //   return tmp;
+      // }, {});
     });
   }
 }
+
 if (numberOfPlayer === "1") {
   const p1 = new Player(
     username1,
