@@ -1,0 +1,23 @@
+.playerWriten {
+  font-family: "Indie Flower", cursive;
+}
+#player1 {
+  position: fixed;
+  top: 15%;
+  left: 3%;
+}
+#player2 {
+  position: fixed;
+  top: 80%;
+  left: 3%;
+}
+#player3 {
+  position: fixed;
+  top: 15%;
+  left: 85%;
+}
+#player4 {
+  position: fixed;
+  top: 80%;
+  left: 85%;
+}

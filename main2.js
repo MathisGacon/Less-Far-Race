@@ -2,21 +2,45 @@
 var numberOfPlayer = prompt("How many player?");
 var grade = [];
 var zero = 0;
+var player1Id = document.querySelector("#player1");
+var player2Id = document.querySelector("#player2");
+var player3Id = document.querySelector("#player3");
+var player4Id = document.querySelector("#player4");
 
 if (numberOfPlayer === "1") {
   var username1 = prompt("Player1 choose a username");
+  alert(`${username1} you are the red arrow`);
+  player1Id.textContent = `${username1} TOUCH A to stop!`;
 } else if (numberOfPlayer === "2") {
   var username1 = prompt("Player1 choose a username");
+  alert(`${username1} you are the red arrow`);
   var username2 = prompt("Player2 choose a username");
+  alert(`${username2} you are the blue arrow`);
+  player1Id.textContent = `${username1} TOUCH A to stop!`;
+  player2Id.textContent = `${username2} TOUCH W to stop!`;
 } else if (numberOfPlayer === "3") {
   var username1 = prompt("Player1 choose a username");
+  alert(`${username1} you are the red arrow`);
   var username2 = prompt("Player2 choose a username");
+  alert(`${username2} you are the blue arrow`);
   var username3 = prompt("Player3 choose a username");
+  alert(`${username3} you are the yellow arrow`);
+  player1Id.textContent = `${username1} TOUCH A to stop!`;
+  player2Id.textContent = `${username2} TOUCH W to stop!`;
+  player3Id.textContent = `${username3} TOUCH $ to stop!`;
 } else {
   var username1 = prompt("Player1 choose a username");
+  alert(`${username1} you are the red arrow`);
   var username2 = prompt("Player2 choose a username");
+  alert(`${username2} you are the blue arrow`);
   var username3 = prompt("Player3 choose a username");
+  alert(`${username3} you are the yellow arrow`);
   var username4 = prompt("Player4 choose a username");
+  alert(`${username4} you are the green arrow`);
+  player1Id.textContent = `${username1} TOUCH A to stop!`;
+  player2Id.textContent = `${username2} TOUCH W to stop!`;
+  player3Id.textContent = `${username3} TOUCH $ to stop!`;
+  player4Id.textContent = `${username4} TOUCH ! to stop!`;
 }
 var winner1 = false;
 var winner2 = false;
@@ -37,7 +61,7 @@ ctx.arc(750, 350, 20, 0, Math.PI * 2);
 ctx.stroke();
 
 class Player {
-  constructor(username, color, touche, arrow, rectContains) {
+  constructor(username, color, touche, arrow, rectContains, vitesse) {
     this.username = username;
     this.score = 0;
     this.color = color;
@@ -58,6 +82,7 @@ class Player {
       dx: rectContains.dx,
       dy: rectContains.dy
     };
+    this.vitesse = vitesse;
   }
   drawArrow() {
     var arrow = setInterval(() => {
@@ -101,48 +126,48 @@ class Player {
           if (!(obj.username == obj.unsername)) return obj.username;
         });
         // console.log(grade);
-
-        console.log(grade);
-        console.log(zero);
-        if (zero === 1 && numberOfPlayer === 1) {
+        // console.log(zero);
+        if (numberOfPlayer === "1" && zero === 1) {
           const res = grade.reduce((acc, current, i) => {
-            const tmp = current.score < acc.score ? acc : current;
+            const tmp =
+              current.score < acc.score && acc.score < 756 ? acc : current;
             return tmp;
           }, grade[0]);
           alert(
-            `Good job ${res.username} you're the winner with ${
-              res.score
-            } points!!`
+            `Good job ${res.username} you have ${res.score} points out of 755!!`
           );
-        } else if (zero === 2 && numberOfPlayer === 2) {
+        } else if (numberOfPlayer === "2" && zero === 2) {
           const res = grade.reduce((acc, current, i) => {
-            const tmp = current.score < acc.score ? acc : current;
+            const tmp =
+              current.score < acc.score && acc.score < 756 ? acc : current;
             return tmp;
           }, grade[0]);
           alert(
             `Good job ${res.username} you're the winner with ${
               res.score
-            } points!!`
+            } points out of 755!!`
           );
-        } else if (zero === 3 && numberOfPlayer === 3) {
+        } else if (numberOfPlayer === "3" && zero === 3) {
           const res = grade.reduce((acc, current, i) => {
-            const tmp = current.score < acc.score ? acc : current;
+            const tmp =
+              current.score < acc.score && acc.score < 756 ? acc : current;
             return tmp;
           }, grade[0]);
           alert(
             `Good job ${res.username} you're the winner with ${
               res.score
-            } points!!`
+            } points out of 755!!`
           );
-        } else if (zero === 4 && numberOfPlayer === 4) {
+        } else if (numberOfPlayer === "4" && zero === 4) {
           const res = grade.reduce((acc, current, i) => {
-            const tmp = current.score < acc.score ? acc : current;
+            const tmp =
+              current.score < acc.score && acc.score < 756 ? acc : current;
             return tmp;
           }, grade[0]);
           alert(
             `Good job ${res.username} you're the winner with ${
               res.score
-            } points!!`
+            } points out of 755!!`
           );
         }
       }
@@ -186,7 +211,8 @@ if (numberOfPlayer === "1") {
       y: 0,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p1.drawArrow();
 } else if (numberOfPlayer === "2") {
@@ -209,7 +235,8 @@ if (numberOfPlayer === "1") {
       y: 0,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p1.drawArrow();
 
@@ -232,7 +259,8 @@ if (numberOfPlayer === "1") {
       y: 350,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p2.drawArrow();
 } else if (numberOfPlayer === "3") {
@@ -255,7 +283,8 @@ if (numberOfPlayer === "1") {
       y: 0,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p1.drawArrow();
   const p2 = new Player(
@@ -277,7 +306,8 @@ if (numberOfPlayer === "1") {
       y: 350,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   console.log(p2);
   p2.drawArrow();
@@ -301,7 +331,8 @@ if (numberOfPlayer === "1") {
       y: 0,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p3.drawArrow();
 } else {
@@ -324,7 +355,8 @@ if (numberOfPlayer === "1") {
       y: 0,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p1.drawArrow();
   const p2 = new Player(
@@ -346,7 +378,8 @@ if (numberOfPlayer === "1") {
       y: 350,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p2.drawArrow();
   const p3 = new Player(
@@ -368,7 +401,8 @@ if (numberOfPlayer === "1") {
       y: 0,
       dx: 750,
       dy: 350
-    }
+    },
+    10
   );
   p3.drawArrow();
   const p4 = new Player(
@@ -390,7 +424,8 @@ if (numberOfPlayer === "1") {
       y: 350,
       dx: 750,
       dy: 350
-    }
+    },
+    5
   );
   p4.drawArrow();
 }

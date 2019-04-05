@@ -1,0 +1,18 @@
+.game-name {
+  position: fixed;
+  font-size: 60px;
+  color: aqua;
+  top: 10%;
+  left: 42%;
+  font-family: "Indie Flower", cursive;
+}
+.logo {
+  position: fixed;
+  top: 30%;
+  left: 38%;
+}
+.btn-play {
+  position: fixed;
+  top: 65%;
+  left: 40%;
+}
